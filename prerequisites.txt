@@ -1,0 +1,48 @@
+================================================================================
+                   ROYALS CRICKET CHATBOT - PREREQUISITES
+================================================================================
+
+1. PYTHON VERSION
+   - Python 3.9 or higher (recommended: Python 3.10 / 3.11)
+   - Check version:  python --version
+
+2. OPERATING SYSTEM
+   - Windows 10/11, macOS, or Linux
+
+3. PIP (Python package installer)
+   - Comes with Python
+   - Upgrade if needed:  python -m pip install --upgrade pip
+
+4. OPENAI API KEY
+   - Create an account at https://platform.openai.com
+   - Generate an API key under API Keys
+   - Paste the key into config.py  (or set OPENAI_API_KEY in a .env file)
+   - Ensure you have available API credits / billing enabled
+
+5. INTERNET CONNECTION
+   - Required to call the OpenAI chat model API
+
+6. TERMINAL / COMMAND PROMPT
+   - PowerShell, Command Prompt, or any terminal to run Streamlit
+
+7. OPTIONAL (recommended)
+   - A modern browser (Chrome, Edge, Firefox) to view the Streamlit UI
+   - Git (if you want to version-control the project)
+
+================================================================================
+                        QUICK SETUP CHECKLIST
+================================================================================
+
+[ ] Install Python 3.9+
+[ ] Clone / open this project folder
+[ ] Create a virtual environment (optional but recommended):
+        python -m venv venv
+        venv\Scripts\activate          (Windows)
+        source venv/bin/activate       (macOS/Linux)
+[ ] Install dependencies:
+        pip install -r requirements.txt
+[ ] Add your OpenAI API key in config.py (or .env)
+[ ] Run the app (see also run_commands.txt):
+        streamlit run app.py
+
+================================================================================

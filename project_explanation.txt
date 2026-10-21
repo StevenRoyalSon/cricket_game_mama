@@ -1,0 +1,93 @@
+================================================================================
+              CRICKET CHATBOT — PROJECT EXPLANATION
+================================================================================
+
+PROJECT NAME
+------------
+Royals Cricket Chatbot (Streamlit)
+
+PURPOSE
+-------
+A realistic, branded cricket conversational chatbot built with Streamlit.
+Users ask cricket questions plus related match-day topics (predictions,
+weather, pitch/conditions, toss, venue); the bot replies using an LLM.
+Unrelated questions are rejected with "out of context".
+Chat history is saved to files (CSV table + JSON), not a database.
+Themed animations play when relevant keywords appear.
+Run commands live in run_commands.txt.
+
+--------------------------------------------------------------------------------
+FOLDER / FILE STRUCTURE
+--------------------------------------------------------------------------------
+
+cricket_game_mama/
+│
+├── app.py                      # Main Streamlit UI (chat + animations + style)
+├── chatbot.py                  # LLM call + cricket-context system prompt
+├── config.py                   # Model name + API key (separate secrets file)
+├── cricket_filter.py           # Detect cricket vs out-of-context questions
+├── history_manager.py          # Session + CSV table + JSON I/O persistence
+├── animations.py               # Crazy cricket-themed CSS / HTML animations
+│
+├── requirements.txt            # Python package dependencies
+├── prerequisites.txt           # What you need before running
+├── project_explanation.txt     # This file
+├── run_commands.txt            # Exact commands to install & run
+├── .env.example                # Sample env vars (optional)
+├── .gitignore
+│
+└── data/                       # Created at runtime under project root
+    ├── chat_history.csv        # Tabular chat history (root_path/data)
+    └── chat_io.json            # Input/output pairs in JSON
+
+--------------------------------------------------------------------------------
+HOW IT WORKS (FLOW)
+--------------------------------------------------------------------------------
+
+1. User types a message in the Streamlit chat input.
+2. cricket_filter.py checks if the message is cricket-related.
+   - If NOT cricket → reply "out of context" (no LLM call needed).
+   - If cricket → send to chatbot.py with a cricket expert system prompt.
+3. Response is shown in the chat UI and stored in:
+   - st.session_state (in-memory for the current browser session)
+   - data/chat_history.csv  (tabular history under project root_path)
+   - data/chat_io.json      (structured input/output log)
+4. If the user asks for "chat history" / "chathistory", the app reads
+   chat_history.csv from root_path/data and displays it as a table.
+5. If the question matches cricket keywords (six, wicket, world cup, etc.),
+   a themed animation is shown above the reply.
+
+--------------------------------------------------------------------------------
+KEY FEATURES
+--------------------------------------------------------------------------------
+
+• Realistic cricket answers via OpenAI chat model (configurable in config.py)
+• Strict cricket-only scope ("out of context" otherwise)
+• Session chat + file-based history (CSV table, no database)
+• JSON log of every input/output pair
+• Crazy cricket animations tied to question topics
+• Cricket emoji / image style background in Streamlit
+
+--------------------------------------------------------------------------------
+RUNNING THE PROJECT
+--------------------------------------------------------------------------------
+
+See run_commands.txt for the full command list. Quick version:
+
+    pip install -r requirements.txt
+    # Put your API key in config.py  OR  create a .env with OPENAI_API_KEY=...
+    streamlit run app.py
+
+Then open the local URL shown in the terminal (usually http://localhost:8501).
+
+--------------------------------------------------------------------------------
+NOTES
+--------------------------------------------------------------------------------
+
+• API key and model live only in config.py (and optionally .env) — keep them
+  out of version control if the repo is public.
+• History files live under the project root (ROOT_PATH/data/). Asking for
+  "chat history" always reloads from that path.
+• No database is used; everything is file + Streamlit session state.
+
+================================================================================
