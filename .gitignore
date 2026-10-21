@@ -218,3 +218,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Cricket chatbot local data & secrets
+data/chat_history.csv
+data/chat_io.json
+venv/
+.venv/
+
