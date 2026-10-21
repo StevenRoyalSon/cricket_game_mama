@@ -35,14 +35,16 @@
 
 [ ] Install Python 3.9+
 [ ] Clone / open this project folder
-[ ] Create a virtual environment (optional but recommended):
+[ ] Create a virtual environment:
         python -m venv venv
         venv\Scripts\activate          (Windows)
         source venv/bin/activate       (macOS/Linux)
+[ ] Select interpreter in Cursor:  venv\Scripts\python.exe
 [ ] Install dependencies:
-        pip install -r requirements.txt
+        python -m pip install -r requirements.txt
 [ ] Add your OpenAI API key in config.py (or .env)
 [ ] Run the app (see also run_commands.txt):
         streamlit run app.py
+        OR:  venv\Scripts\python.exe -m streamlit run app.py
 
 ================================================================================

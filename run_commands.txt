@@ -2,38 +2,58 @@
               ROYALS CRICKET CHATBOT — RUN COMMANDS
 ================================================================================
 
+INTERPRETER (venv)
+------------------
+  c:\Users\Quadrant\Desktop\Training\cricket_game_mama\venv\Scripts\python.exe
+
+  In Cursor / VS Code: select this interpreter
+  (Command Palette → "Python: Select Interpreter" → choose ./venv)
+
+================================================================================
+
 1. OPEN PROJECT FOLDER
    cd c:\Users\Quadrant\Desktop\Training\cricket_game_mama
 
-2. (OPTIONAL) CREATE & ACTIVATE VIRTUAL ENVIRONMENT
+2. CREATE VIRTUAL ENVIRONMENT (already created if venv\ exists)
    python -m venv venv
+
+3. ACTIVATE VENV
    venv\Scripts\activate
 
-3. INSTALL DEPENDENCIES
-   pip install -r requirements.txt
+4. INSTALL DEPENDENCIES (use venv pip)
+   venv\Scripts\python.exe -m pip install -r requirements.txt
 
-4. SET API KEY
+5. SET API KEY
    - Edit config.py and set OPENAI_API_KEY
      OR
    - Copy .env.example to .env and set:
        OPENAI_API_KEY=sk-your-key-here
        MODEL_NAME=gpt-4o-mini
 
-5. RUN THE APP  (main command)
+6. RUN THE APP  (main command — after activate)
    streamlit run app.py
 
-6. OPEN IN BROWSER
+   OR without activating:
+   venv\Scripts\streamlit.exe run app.py
+   venv\Scripts\python.exe -m streamlit run app.py
+
+7. OPEN IN BROWSER
    Usually:  http://localhost:8501
 
-7. STOP THE APP
+8. STOP THE APP
    Press Ctrl + C in the terminal
+
+9. DEACTIVATE VENV (when done)
+   deactivate
 
 ================================================================================
                          QUICK START (copy-paste)
 ================================================================================
 
    cd c:\Users\Quadrant\Desktop\Training\cricket_game_mama
-   pip install -r requirements.txt
+   python -m venv venv
+   venv\Scripts\activate
+   python -m pip install -r requirements.txt
    streamlit run app.py
 
 ================================================================================
